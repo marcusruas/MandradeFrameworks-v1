@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MandradePkgs.Persistencia.Estrutura.Models;
+using MandradePkgs.Conexoes.Estrutura.Models;
 using Newtonsoft.Json;
 
-namespace MandradePkgs.Persistencia.Estrutura.Helpers
+namespace MandradePkgs.Conexoes.Estrutura.Helpers
 {
     internal static class LeitorArquivos
     {   

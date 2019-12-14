@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
-using static MandradePkgs.Persistencia.Estrutura.Helpers.LeitorArquivos;
+using static MandradePkgs.Conexoes.Estrutura.Helpers.LeitorArquivos;
 
-namespace MandradePkgs.Persistencia.Estrutura.Implementacao
+namespace MandradePkgs.Conexoes.Estrutura.Implementacao
 {
     internal class ConexaoSQL : IConexaoSQL
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace MandradePkgs.Persistencia
+namespace MandradePkgs.Conexoes
 {
     public interface IConexaoSQL
     {

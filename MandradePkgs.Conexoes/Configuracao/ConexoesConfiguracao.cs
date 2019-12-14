@@ -1,11 +1,10 @@
-﻿using MandradePkgs.Persistencia;
-using MandradePkgs.Persistencia.Estrutura.Implementacao;
+﻿using MandradePkgs.Conexoes.Estrutura.Implementacao;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Persistencia
+namespace MandradePkgs.Conexoes.Configuracao
 {
     public static class PersistenciaConfiguracao
     {
