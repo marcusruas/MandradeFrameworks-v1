@@ -15,11 +15,7 @@ namespace MandradePkgs.Conexoes.Estrutura.Implementacao
         }
 
         public string ObterConsultaArquivoSQL(Type classeExecutora, string nomeArquivo) {
-            return LerArquivoSQL(_localConexoes, nomeArquivo);
-        }
-
-        public IDbConnection CriarNovaConexao(string nomeBanco) {
-            return new SqlConnection(BuscarConnectionString(_localConexoes, nomeBanco));
+            return LerArquivoSQL(classeExecutora, nomeArquivo);
         }
 
         public (string, IDbConnection) ObterComandoSQLParaBanco(Type classeExecutora, string nomeArquivo, string nomeBanco) {
@@ -27,6 +23,9 @@ namespace MandradePkgs.Conexoes.Estrutura.Implementacao
                 ObterConsultaArquivoSQL(classeExecutora, nomeArquivo),
                 CriarNovaConexao(nomeBanco)
             );
+        }
+        public IDbConnection CriarNovaConexao(string nomeBanco) {
+            return new SqlConnection(BuscarConnectionString(_localConexoes, nomeBanco));
         }
 
         public string ObterConnectionString(string nomeBanco) {
