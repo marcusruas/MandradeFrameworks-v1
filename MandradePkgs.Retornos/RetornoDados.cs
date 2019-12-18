@@ -4,7 +4,7 @@ using MandradePkgs.Retornos.Models;
 
 namespace MandradePkgs.Retornos
 {
-    public static class FormatadorRetornos
+    public static class RetornoDados
     {
         public static RespostaApi GerarRetornoPadrao(){
             return new RespostaApi();
@@ -26,10 +26,6 @@ namespace MandradePkgs.Retornos
             }catch(Exception ex){
                 throw new FalhaExecucaoException(ex.Message);
             }
-        }
-
-        public static RespostaApi ErroNegocio(string mensagem) {
-
         }
     }
 }

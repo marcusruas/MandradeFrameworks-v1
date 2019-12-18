@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MandradePkgs.Retornos.Estrutura.Models
+namespace MandradePkgs.Retornos.Estrutura.Models.Erros
 {
     public enum TipoErro
     {
