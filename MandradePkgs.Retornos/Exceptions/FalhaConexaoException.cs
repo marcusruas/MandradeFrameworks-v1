@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MandradePkgs.Retornos.Exceptions.Implementacao
+namespace MandradePkgs.Retornos.Exceptions
 {
     public class FalhaConexaoException : ApiException
     {

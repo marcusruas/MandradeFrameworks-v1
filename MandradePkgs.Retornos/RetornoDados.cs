@@ -16,7 +16,7 @@ namespace MandradePkgs.Retornos
                 return new RespostaApi(true, dados);
             }catch(Exception ex){
                 throw new FalhaExecucaoException(ex.Message);
-            }
+            }   
         }
 
         public static RespostaApi GerarRetornoPadrao(Action metodo){

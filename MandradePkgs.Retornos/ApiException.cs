@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MandradePkgs.Retornos.Exceptions
+namespace MandradePkgs.Retornos
 {
     public abstract class ApiException : Exception
     {

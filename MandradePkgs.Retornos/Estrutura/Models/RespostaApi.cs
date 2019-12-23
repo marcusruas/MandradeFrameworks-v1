@@ -22,6 +22,11 @@ namespace MandradePkgs.Retornos.Models
             Dados = dados;
         }
 
+        public RespostaApi(Exception ex) {
+            Sucesso = false;
+            Dados = ex;
+        }
+
         public bool Sucesso { get; }
         public dynamic Dados { get; }
     }
