@@ -6,12 +6,12 @@ namespace MandradePkgs.Retornos.Exceptions
 {
     public class FalhaExecucaoException : ApiException
     {
-        public FalhaExecucaoException(string mensagem) : base(mensagem) {
+        public FalhaExecucaoException(string mensagem) {
             MensagemPadrao = "Ocorreu uma falha ao executar a ação. Contate o Suporte para mais informações.";
             DescricaoErro = mensagem;
         }
 
-        public FalhaExecucaoException(string mensagem, string mensagemPadrao) : base(mensagem) {
+        public FalhaExecucaoException(string mensagem, string mensagemPadrao) {
             MensagemPadrao = mensagemPadrao;
             DescricaoErro = mensagem;
         }

@@ -15,7 +15,7 @@ namespace MandradePkgs.Retornos
                 var dados = metodo.Invoke();
                 return new RespostaApi(true, dados);
             }catch(Exception ex){
-                throw new FalhaExecucaoException(ex.Message);
+                return new RespostaApi(ex);
             }   
         }
 
@@ -24,7 +24,7 @@ namespace MandradePkgs.Retornos
                 metodo.Invoke();
                 return new RespostaApi();
             }catch(Exception ex){
-                throw new FalhaExecucaoException(ex.Message);
+                return new RespostaApi(ex);
             }
         }
     }

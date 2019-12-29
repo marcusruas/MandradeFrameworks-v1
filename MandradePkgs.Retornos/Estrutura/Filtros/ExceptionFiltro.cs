@@ -1,6 +1,6 @@
-﻿using MandradePkgs.Retornos.Exceptions;
-using MandradePkgs.Retornos.Models;
+﻿using MandradePkgs.Retornos.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,14 +8,15 @@ using System.Text;
 
 namespace MandradePkgs.Retornos.Estrutura.Filtros
 {
-    internal class ExceptionFiltro : IExceptionFilter
+    public class ExceptionFiltro : IExceptionFilter
     {
         public void OnException(ExceptionContext context) {
-            var body = context.HttpContext.Response.Body;
+            context.HttpContext.Response.ContentType = "application/json";
             context.HttpContext.Response.StatusCode = 400;
-            using (StreamWriter sr = new StreamWriter(body)) {
+
+            using (StreamWriter sr = new StreamWriter(context.HttpContext.Response.Body)) {
                 var retorno = new RespostaApi(context.Exception);
-                sr.Write(retorno);
+                sr.Write(JsonConvert.SerializeObject(retorno));
                 sr.Flush();
             }
         }

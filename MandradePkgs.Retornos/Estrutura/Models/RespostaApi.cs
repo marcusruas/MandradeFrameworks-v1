@@ -24,7 +24,7 @@ namespace MandradePkgs.Retornos.Models
 
         public RespostaApi(Exception ex) {
             Sucesso = false;
-            Dados = ex;
+            Dados = new FalhaExecucaoException(ex.Message);
         }
 
         public bool Sucesso { get; }

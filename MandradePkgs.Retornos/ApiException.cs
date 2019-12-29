@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MandradePkgs.Retornos
 {
-    public abstract class ApiException : Exception
+    public abstract class ApiException
     {
-        public ApiException(string mensagem) : base(mensagem) {
+        public ApiException() {
         }
 
         public abstract int CodigoRetorno { get; }

@@ -6,12 +6,12 @@ namespace MandradePkgs.Retornos.Exceptions
 {
     public class RegraNegocioException : ApiException
     {
-        public RegraNegocioException(string mensagem) : base(mensagem) {
-            MensagemPadrao = "Informações digitadas erradas. Verifique as informações e tente novamente.";
+        public RegraNegocioException(string mensagem) {
+            MensagemPadrao = "Informações digitadas inválidas. Verifique as informações e tente novamente.";
             DescricaoErro = mensagem;
         }
 
-        public RegraNegocioException(string mensagem, string mensagemPadrao) : base(mensagem) {
+        public RegraNegocioException(string mensagem, string mensagemPadrao) {
             MensagemPadrao = mensagemPadrao;
             DescricaoErro = mensagem;
         }

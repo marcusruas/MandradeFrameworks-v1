@@ -6,12 +6,12 @@ namespace MandradePkgs.Retornos.Exceptions
 {
     public class FalhaConexaoException : ApiException
     {
-        public FalhaConexaoException(string mensagem) : base(mensagem) {
+        public FalhaConexaoException(string mensagem) {
             MensagemPadrao = "Ocorreu uma falha ao enviar as informações. Reinicie o navegador ou tente novamente mais tarde";
             DescricaoErro = mensagem;
         }
 
-        public FalhaConexaoException(string mensagem, string mensagemPadrao) : base(mensagem) {
+        public FalhaConexaoException(string mensagem, string mensagemPadrao) {
             MensagemPadrao = mensagemPadrao;
             DescricaoErro = mensagem;
         }
