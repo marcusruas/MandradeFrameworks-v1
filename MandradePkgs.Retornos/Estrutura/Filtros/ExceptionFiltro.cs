@@ -1,4 +1,7 @@
-﻿using MandradePkgs.Retornos.Models;
+﻿using MandradePkgs.Retornos.Estrutura.Models;
+using MandradePkgs.Retornos.Exceptions;
+using MandradePkgs.Retornos.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 using System;
@@ -8,17 +11,37 @@ using System.Text;
 
 namespace MandradePkgs.Retornos.Estrutura.Filtros
 {
-    public class ExceptionFiltro : IExceptionFilter
+    internal class ExceptionFiltro : IExceptionFilter
     {
         public void OnException(ExceptionContext context) {
-            context.HttpContext.Response.ContentType = "application/json";
-            context.HttpContext.Response.StatusCode = 400;
+            int codigoResultado;
+            Exception exceptionTratada;
 
-            using (StreamWriter sr = new StreamWriter(context.HttpContext.Response.Body)) {
-                var retorno = new RespostaApi(context.Exception);
-                sr.Write(JsonConvert.SerializeObject(retorno));
-                sr.Flush();
+            if (context.Exception is FalhaExecucaoException) {
+                exceptionTratada = new FalhaExecucaoException(context.Exception.Message);
+                codigoResultado = 500;
             }
+            else if (context.Exception is FalhaConexaoExternaException) {
+                exceptionTratada = new FalhaConexaoExternaException(context.Exception.Message);
+                codigoResultado = 503;
+            }
+            else if (context.Exception is FalhaConexaoException) {
+                exceptionTratada = new FalhaConexaoException(context.Exception.Message);
+                codigoResultado = 503;
+            }
+            else if (context.Exception is RegraNegocioException) {
+                exceptionTratada = new RegraNegocioException(context.Exception.Message);
+                codigoResultado = 400;
+            }
+            else {
+                exceptionTratada = new GenericaException(context.Exception.Message);
+                codigoResultado = 422;
+            }
+
+            ApiExceptionModel exceptionModel = new ApiExceptionModel(exceptionTratada);
+
+            context.HttpContext.Response.StatusCode = codigoResultado;
+            context.Result = new ObjectResult(new RespostaApi(exceptionModel));
         }
     }
 }

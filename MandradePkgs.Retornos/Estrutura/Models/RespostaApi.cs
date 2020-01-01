@@ -1,3 +1,4 @@
+using MandradePkgs.Retornos.Estrutura.Models;
 using MandradePkgs.Retornos.Exceptions;
 using System;
 
@@ -27,7 +28,18 @@ namespace MandradePkgs.Retornos.Models
             Dados = new FalhaExecucaoException(ex.Message);
         }
 
+        public RespostaApi(ApiExceptionModel erro) {
+            Sucesso = false;
+            Dados = erro;
+        }
+
         public bool Sucesso { get; }
         public dynamic Dados { get; }
+
+        public bool OcorreuErro() {
+            return
+                Dados is Exception ||
+                Dados is ApiException;
+        }
     }
 }

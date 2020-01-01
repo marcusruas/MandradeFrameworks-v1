@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using MandradePkgs.Retornos.Exceptions;
 using MandradePkgs.Retornos.Models;
 
@@ -10,22 +11,8 @@ namespace MandradePkgs.Retornos
             return new RespostaApi();
         }
 
-        public static RespostaApi GerarRetornoPadrao(Func<dynamic> metodo){
-            try{
-                var dados = metodo.Invoke();
-                return new RespostaApi(true, dados);
-            }catch(Exception ex){
-                return new RespostaApi(ex);
-            }   
-        }
-
-        public static RespostaApi GerarRetornoPadrao(Action metodo){
-            try{
-                metodo.Invoke();
-                return new RespostaApi();
-            }catch(Exception ex){
-                return new RespostaApi(ex);
-            }
+        public static RespostaApi GerarRetornoPadrao(dynamic parametros){
+            return new RespostaApi(true, parametros);
         }
     }
 }
