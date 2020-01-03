@@ -1,14 +1,10 @@
-﻿using MandradePkgs.Retornos.Estrutura.Models;
-using MandradePkgs.Retornos.Exceptions;
+﻿using MandradePkgs.Retornos.Erros;
+using MandradePkgs.Retornos.Erros.Exceptions;
 using MandradePkgs.Retornos.Mensagens;
 using MandradePkgs.Retornos.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace MandradePkgs.Retornos.Estrutura.Filtros
 {
@@ -43,7 +39,7 @@ namespace MandradePkgs.Retornos.Estrutura.Filtros
             ApiExceptionModel exceptionModel = new ApiExceptionModel(exceptionTratada);
 
             context.HttpContext.Response.StatusCode = codigoResultado;
-            context.Result = new ObjectResult(new RespostaApi(exceptionModel));
+            context.Result = new ObjectResult(new RespostaApi(exceptionModel, mensagens));
         }
     }
 }

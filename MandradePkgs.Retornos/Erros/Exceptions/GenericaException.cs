@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MandradePkgs.Retornos.Exceptions
+﻿namespace MandradePkgs.Retornos.Erros.Exceptions
 {
     public class GenericaException : ApiException
     {

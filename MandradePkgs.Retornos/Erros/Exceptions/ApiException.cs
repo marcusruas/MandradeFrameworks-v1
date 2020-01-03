@@ -1,9 +1,6 @@
-﻿using MandradePkgs.Retornos.Estrutura.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
-namespace MandradePkgs.Retornos.Exceptions
+namespace MandradePkgs.Retornos.Erros.Exceptions
 {
     public abstract class ApiException : Exception
     {
