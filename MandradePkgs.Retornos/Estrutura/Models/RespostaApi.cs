@@ -1,5 +1,6 @@
 using MandradePkgs.Retornos.Estrutura.Models;
 using MandradePkgs.Retornos.Exceptions;
+using MandradePkgs.Retornos.Mensagens;
 using System;
 
 namespace MandradePkgs.Retornos.Models
@@ -35,6 +36,7 @@ namespace MandradePkgs.Retornos.Models
 
         public bool Sucesso { get; }
         public dynamic Dados { get; }
+        public MensagensApi Mensagens { get; }
 
         public bool OcorreuErro() {
             return

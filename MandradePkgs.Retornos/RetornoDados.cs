@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-using MandradePkgs.Retornos.Exceptions;
 using MandradePkgs.Retornos.Models;
 
 namespace MandradePkgs.Retornos

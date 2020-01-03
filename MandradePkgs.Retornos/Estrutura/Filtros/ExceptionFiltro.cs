@@ -1,5 +1,6 @@
 ﻿using MandradePkgs.Retornos.Estrutura.Models;
 using MandradePkgs.Retornos.Exceptions;
+using MandradePkgs.Retornos.Mensagens;
 using MandradePkgs.Retornos.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -16,6 +17,7 @@ namespace MandradePkgs.Retornos.Estrutura.Filtros
         public void OnException(ExceptionContext context) {
             int codigoResultado;
             Exception exceptionTratada;
+            var mensagens = (MensagensApi)context.HttpContext.RequestServices.GetService(typeof(MensagensApi));
 
             if (context.Exception is FalhaExecucaoException) {
                 exceptionTratada = new FalhaExecucaoException(context.Exception.Message);
