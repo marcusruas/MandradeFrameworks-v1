@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>Retornos</PackageId>
-    <Version>0.0.6</Version>
+    <Version>0.0.7</Version>
     <Authors>Marcus Ruas</Authors>
     <description>Pacote de retornos para minha API.</description>
     <copyright>Copyright ©2019 Marcus Ruas</copyright>

@@ -11,26 +11,34 @@ namespace MandradePkgs.Retornos
     {
         public RespostaApi RespostaPadrao() {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
-            Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
-            return new RespostaApi(_mensagens);
+            Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 204;
+            var objRetorno = new RespostaApi(_mensagens);
+            _mensagens.LimparMensagens();
+            return objRetorno;
         }
 
         public RespostaApi RespostaPadrao(bool sucesso) {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
-            return new RespostaApi(sucesso, _mensagens);
+            var objRetorno = new RespostaApi(sucesso, _mensagens);
+            _mensagens.LimparMensagens();
+            return objRetorno;
         }
 
         public RespostaApi RespostaPadrao(dynamic dados) {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
-            return new RespostaApi(dados, _mensagens);
+            var objRetorno = new RespostaApi(dados, _mensagens);
+            _mensagens.LimparMensagens();
+            return objRetorno;
         }
 
         public RespostaApi RespostaPadrao(bool sucesso, dynamic dados) {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
-            return new RespostaApi(sucesso, dados, _mensagens);
+            var objRetorno = new RespostaApi(sucesso, dados, _mensagens);
+            _mensagens.LimparMensagens();
+            return objRetorno;
         }
     }
 }

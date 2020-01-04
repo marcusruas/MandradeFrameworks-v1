@@ -16,5 +16,6 @@ namespace MandradePkgs.Retornos.Mensagens
         public void AdicionarMensagem(string mensagem) => Mensagens.Add(new Mensagem(mensagem));
         public void AdicionarMensagem(TipoMensagem tipoMensagem, string mensagem) => Mensagens.Add(new Mensagem(tipoMensagem, mensagem));
         public bool PossuiMensagensErro() => Mensagens.Any(x => x.Tipo == TipoMensagem.Erro);
+        public void LimparMensagens() => Mensagens.Clear();
     }
 }
