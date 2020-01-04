@@ -19,7 +19,7 @@ namespace MandradePkgs.Retornos.Mensagens
         public void LimparMensagens() => Mensagens.Clear();
 
         public List<Mensagem> ObterMensagens() {
-            var _mensagens = Mensagens;
+            var _mensagens = new List<Mensagem>(Mensagens);
             LimparMensagens();
             return _mensagens;
         }
