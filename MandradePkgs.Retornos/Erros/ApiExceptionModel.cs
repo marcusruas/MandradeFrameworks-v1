@@ -14,14 +14,14 @@ namespace MandradePkgs.Retornos.Erros
         public ApiExceptionModel(ApiException exception) {
             CodigoRetorno = exception.CodigoRetorno;
             MensagemPadrao = exception.MensagemPadrao;
-            DescricaoErro = exception.DescricaoErro;
+            DescricaoErro = exception.Message;
         }
 
         public ApiExceptionModel(Exception exception) {
             var erro = new FalhaExecucaoException(exception.Message);
             CodigoRetorno = erro.CodigoRetorno;
             MensagemPadrao = erro.MensagemPadrao;
-            DescricaoErro = erro.DescricaoErro;
+            DescricaoErro = erro.Message;
         }
 
         public int CodigoRetorno { get; }

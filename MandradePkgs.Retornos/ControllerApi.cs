@@ -9,21 +9,20 @@ namespace MandradePkgs.Retornos
 {
     public class ControllerApi : ControllerBase
     {
-        private MensagensApi _mensagens { get; }
-        public ControllerApi() {
-            _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
-        }
         public RespostaApi RespostaPadrao() {
+            var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
             return new RespostaApi(_mensagens);
         }
 
         public RespostaApi RespostaPadrao(dynamic dados) {
+            var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
             return new RespostaApi(dados, _mensagens);
         }
 
         public RespostaApi RespostaPadrao(bool sucesso, dynamic dados) {
+            var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
             return new RespostaApi(sucesso, dados, _mensagens);
         }
