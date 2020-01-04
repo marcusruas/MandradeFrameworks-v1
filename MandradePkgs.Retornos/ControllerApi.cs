@@ -15,6 +15,12 @@ namespace MandradePkgs.Retornos
             return new RespostaApi(_mensagens);
         }
 
+        public RespostaApi RespostaPadrao(bool sucesso) {
+            var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
+            Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
+            return new RespostaApi(sucesso, _mensagens);
+        }
+
         public RespostaApi RespostaPadrao(dynamic dados) {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;

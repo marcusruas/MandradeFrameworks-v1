@@ -21,7 +21,7 @@ namespace MandradePkgs.Retornos.Erros
             var erro = new FalhaExecucaoException(exception.Message);
             CodigoRetorno = erro.CodigoRetorno;
             MensagemPadrao = erro.MensagemPadrao;
-            DescricaoErro = erro.Message;
+            DescricaoErro = erro.DescricaoErro;
         }
 
         public int CodigoRetorno { get; }

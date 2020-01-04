@@ -15,16 +15,21 @@ namespace MandradePkgs.Retornos.Models
             Mensagens = mensagens.Mensagens;
         }
 
-        public RespostaApi(bool sucesso, MensagensApi mensagens)
+        public RespostaApi(bool sucesso, dynamic dados, MensagensApi mensagens)
         {
+            Sucesso = sucesso;
+            Dados = dados;
+            Mensagens = mensagens.Mensagens;
+        }
+
+        public RespostaApi(bool sucesso, MensagensApi mensagens) {
             Sucesso = sucesso;
             Dados = null;
             Mensagens = mensagens.Mensagens;
         }
 
-        public RespostaApi(bool sucesso, dynamic dados, MensagensApi mensagens)
-        {
-            Sucesso = sucesso;
+        public RespostaApi(dynamic dados, MensagensApi mensagens) {
+            Sucesso = true;
             Dados = dados;
             Mensagens = mensagens.Mensagens;
         }
