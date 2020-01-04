@@ -14,7 +14,7 @@ namespace MandradePkgs.Retornos.Erros
         public ApiExceptionModel(ApiException exception) {
             CodigoRetorno = exception.CodigoRetorno;
             MensagemPadrao = exception.MensagemPadrao;
-            DescricaoErro = exception.Message;
+            DescricaoErro = exception.DescricaoErro;
         }
 
         public int CodigoRetorno { get; }
