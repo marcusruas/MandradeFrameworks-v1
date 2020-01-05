@@ -7,16 +7,16 @@ namespace MandradePkgs.Retornos.Mensagens
     public class Mensagem
     {
         public Mensagem(TipoMensagem tipo, string texto) {
-            Tipo = tipo;
+            Tipo = tipo.ToString();
             Texto = texto;
         }
 
         public Mensagem(string texto) {
-            Tipo = TipoMensagem.Informativo;
+            Tipo = TipoMensagem.Informativo.ToString();
             Texto = texto;
         }
 
-        public TipoMensagem Tipo { get; set; }
+        public string Tipo { get; set; }
         public string Texto { get; set; }
     }
 }
