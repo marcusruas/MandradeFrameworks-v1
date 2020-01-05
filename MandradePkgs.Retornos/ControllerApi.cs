@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MandradePkgs.Retornos
 {
-    public class ControllerApi : ControllerBase
+    public abstract class ControllerApi : ControllerBase
     {
         public ControllerApi() {
         }
