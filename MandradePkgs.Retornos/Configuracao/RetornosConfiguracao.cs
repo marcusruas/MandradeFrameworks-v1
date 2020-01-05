@@ -8,7 +8,7 @@ namespace MandradePkgs.Retornos.Configuracao
     public static class RetornosConfiguracao
     {
         public static void ImplementarMensagensRetorno(this IServiceCollection servicos) =>
-            servicos.AddSingleton<MensagensApi>();
+            servicos.AddTransient<MensagensApi>();
 
         public static void ImplementarFiltrosRetorno(this MvcOptions configuracoes) {
             configuracoes.Filters.Add<ExceptionFiltro>();

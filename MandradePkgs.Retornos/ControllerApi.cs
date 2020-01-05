@@ -1,9 +1,6 @@
 ﻿using MandradePkgs.Retornos.Mensagens;
-using MandradePkgs.Retornos.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace MandradePkgs.Retornos
 {
@@ -21,16 +18,16 @@ namespace MandradePkgs.Retornos
             return new RespostaApi(sucesso, _mensagens);
         }
 
-        public RespostaApi RespostaPadrao<T>(T dados) {
+        public RespostaApi<T> RespostaPadrao<T>(T dados) {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
-            return new RespostaApi(dados, _mensagens);
+            return new RespostaApi<T>(dados, _mensagens);
         }
 
-        public RespostaApi RespostaPadrao<T>(bool sucesso, T dados) {
+        public RespostaApi<T> RespostaPadrao<T>(bool sucesso, T dados) {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 200;
-            return new RespostaApi(sucesso, dados, _mensagens);
+            return new RespostaApi<T>(sucesso, dados, _mensagens);
         }
     }
 }
