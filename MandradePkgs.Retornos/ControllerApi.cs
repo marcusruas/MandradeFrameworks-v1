@@ -6,6 +6,9 @@ namespace MandradePkgs.Retornos
 {
     public class ControllerApi : ControllerBase
     {
+        public ControllerApi() {
+        }
+
         public RespostaApi RespostaPadrao() {
             var _mensagens = (MensagensApi)HttpContext.RequestServices.GetService(typeof(MensagensApi));
             Response.StatusCode = _mensagens.PossuiMensagensErro() ? 400 : 204;

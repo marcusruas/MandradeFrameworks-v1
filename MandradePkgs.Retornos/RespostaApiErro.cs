@@ -10,12 +10,12 @@ namespace MandradePkgs.Retornos
     {
         public RespostaApiErro(ApiExceptionModel erro, MensagensApi mensagens) {
             Sucesso = false;
-            Erro = erro;
+            Dados = erro;
             Mensagens = mensagens.ObterMensagens();
         }
 
         public bool Sucesso { get; }
-        public ApiExceptionModel Erro { get; }
+        public ApiExceptionModel Dados { get; }
         public List<Mensagem> Mensagens { get; }
     }
 }
