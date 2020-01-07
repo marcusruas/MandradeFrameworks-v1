@@ -5,7 +5,14 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.Conexoes", "MandradePkgs.Conexoes\MandradePkgs.Conexoes.csproj", "{7BCF423E-8C8F-4D28-AB52-16D0B342F76F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandradePkgs.Retornos", "MandradePkgs.Retornos\MandradePkgs.Retornos.csproj", "{67EC0B08-D76E-41AB-9CB4-8E2E35F01C5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.Retornos", "MandradePkgs.Retornos\MandradePkgs.Retornos.csproj", "{67EC0B08-D76E-41AB-9CB4-8E2E35F01C5A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEA63319-9151-43BD-BC09-734B5C25C8D8} = {CEA63319-9151-43BD-BC09-734B5C25C8D8}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.Autenticacao", "MandradePkgs.Autenticacao\MandradePkgs.Autenticacao.csproj", "{316B99D1-B4D5-4305-BB56-1FD96370DC1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandradePkgs.Mensagens", "MandradePkgs.Mensagens\MandradePkgs.Mensagens.csproj", "{CEA63319-9151-43BD-BC09-734B5C25C8D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,14 @@ Global
 		{67EC0B08-D76E-41AB-9CB4-8E2E35F01C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67EC0B08-D76E-41AB-9CB4-8E2E35F01C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67EC0B08-D76E-41AB-9CB4-8E2E35F01C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316B99D1-B4D5-4305-BB56-1FD96370DC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316B99D1-B4D5-4305-BB56-1FD96370DC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316B99D1-B4D5-4305-BB56-1FD96370DC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316B99D1-B4D5-4305-BB56-1FD96370DC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA63319-9151-43BD-BC09-734B5C25C8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA63319-9151-43BD-BC09-734B5C25C8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA63319-9151-43BD-BC09-734B5C25C8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA63319-9151-43BD-BC09-734B5C25C8D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
