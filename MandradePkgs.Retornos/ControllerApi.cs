@@ -1,4 +1,4 @@
-﻿using MandradePkgs.Retornos.Mensagens;
+﻿using MandradePkgs.Mensagens;
 using Microsoft.AspNetCore.Mvc;
 
 

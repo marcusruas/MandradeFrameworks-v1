@@ -1,8 +1,6 @@
-﻿using MandradePkgs.Retornos.Erros;
-using MandradePkgs.Retornos.Mensagens;
-using System;
+﻿using MandradePkgs.Mensagens;
+using MandradePkgs.Retornos.Erros;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MandradePkgs.Retornos
 {
