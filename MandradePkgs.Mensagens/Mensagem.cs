@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MandradePkgs.Retornos.Mensagens
+namespace MandradePkgs.Mensagens
 {
     public class Mensagem
     {

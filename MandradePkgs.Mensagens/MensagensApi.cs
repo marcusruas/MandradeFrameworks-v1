@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MandradePkgs.Retornos.Mensagens
+namespace MandradePkgs.Mensagens
 {
     public class MensagensApi
     {
@@ -11,7 +11,7 @@ namespace MandradePkgs.Retornos.Mensagens
             Mensagens = new List<Mensagem>();
         }
 
-        private List<Mensagem> Mensagens;
+        private readonly List<Mensagem> Mensagens;
 
         public void AdicionarMensagem(string mensagem) => Mensagens.Add(new Mensagem(mensagem));
         public void AdicionarMensagem(TipoMensagem tipoMensagem, string mensagem) => Mensagens.Add(new Mensagem(tipoMensagem, mensagem));
