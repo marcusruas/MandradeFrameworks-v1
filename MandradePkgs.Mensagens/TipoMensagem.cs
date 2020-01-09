@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MandradePkgs.Mensagens
+﻿namespace MandradePkgs.Mensagens
 {
     public enum TipoMensagem
     {
