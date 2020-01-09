@@ -6,10 +6,10 @@ namespace MandradePkgs.Retornos
 {
     public class RespostaApiErro
     {
-        public RespostaApiErro(ApiExceptionModel erro, MensagensApi mensagens) {
+        public RespostaApiErro(ApiExceptionModel erro, List<Mensagem> mensagens) {
             Sucesso = false;
             Dados = erro;
-            Mensagens = mensagens.ObterMensagens();
+            Mensagens = mensagens;
         }
 
         public bool Sucesso { get; }

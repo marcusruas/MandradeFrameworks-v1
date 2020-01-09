@@ -5,16 +5,16 @@ namespace MandradePkgs.Retornos
 {
     public class RespostaApi<T>
     {
-        public RespostaApi(bool sucesso, T dados, MensagensApi mensagens) {
+        public RespostaApi(bool sucesso, T dados, List<Mensagem> mensagens) {
             Sucesso = sucesso;
             Dados = dados;
-            Mensagens = mensagens.ObterMensagens();
+            Mensagens = mensagens;
         }
 
-        public RespostaApi(T dados, MensagensApi mensagens) {
+        public RespostaApi(T dados, List<Mensagem> mensagens) {
             Sucesso = true;
             Dados = dados;
-            Mensagens = mensagens.ObterMensagens();
+            Mensagens = mensagens;
         }
 
         public bool Sucesso { get; }
@@ -24,16 +24,16 @@ namespace MandradePkgs.Retornos
 
     public class RespostaApi
     {
-        public RespostaApi(MensagensApi mensagens) {
+        public RespostaApi(List<Mensagem> mensagens) {
             Sucesso = true;
             Dados = "Método executado com sucesso";
-            Mensagens = mensagens.ObterMensagens();
+            Mensagens = mensagens;
         }
 
-        public RespostaApi(bool sucesso, MensagensApi mensagens) {
+        public RespostaApi(bool sucesso, List<Mensagem> mensagens) {
             Sucesso = sucesso;
             Dados = null;
-            Mensagens = mensagens.ObterMensagens();
+            Mensagens = mensagens;
         }
 
         public bool Sucesso { get; }

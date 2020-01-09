@@ -11,7 +11,7 @@ namespace MandradePkgs.Retornos.Estrutura.Filtros
         public void OnException(ExceptionContext context) {
             int codigoResultado;
             ApiException exceptionTratada;
-            var _mensagens = (MensagensApi)context.HttpContext.RequestServices.GetService(typeof(MensagensApi));
+            var _mensagens = (IMensagensApi)context.HttpContext.RequestServices.GetService(typeof(IMensagensApi));
 
             if (context.Exception is FalhaExecucaoException) {
                 exceptionTratada = new FalhaExecucaoException(context.Exception.Message);
@@ -37,7 +37,7 @@ namespace MandradePkgs.Retornos.Estrutura.Filtros
             ApiExceptionModel exceptionModel = new ApiExceptionModel(exceptionTratada);
 
             context.HttpContext.Response.StatusCode = codigoResultado;
-            context.Result = new ObjectResult(new RespostaApiErro(exceptionModel, _mensagens));
+            context.Result = new ObjectResult(new RespostaApiErro(exceptionModel, _mensagens.Mensagens));
         }
     }
 }
