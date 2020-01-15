@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Reflection;
 
-namespace Aplicacao
+namespace MandradePkgs.Mapeamentos
 {
     public static class DboSqlMapper
     {
