@@ -21,14 +21,9 @@ namespace MandradePkgs.Conexoes.Mapeamentos
                 var tipo = ObterTipo(prop.PropertyType);
                 var tamanho = ObterTamanho(prop);
 
-                if (tipo.HasValue && (tipo.Value == DbType.Int16 || tipo.Value == DbType.Int32 || tipo.Value == DbType.Int64))
-                    if ((int)dadosProp == 0)
-                        continue;
-                if (dadosProp == null) continue;
-
-
+                if (!(tipo is DbType.Int16 || tipo is DbType.Int32 || tipo is DbType.Int64))
+                    if (dadosProp == null) continue;
                 parametros.Add(descricao, dadosProp, tipo, size: tamanho);
-
             }
 
             return parametros;
@@ -55,9 +50,6 @@ namespace MandradePkgs.Conexoes.Mapeamentos
             foreach (var tipo in tiposSQL)
                 if (tipo.ToString() == prop.Name)
                     return (DbType)tipo;
-
-            if (prop.Name == "Long")
-                return DbType.Int64;
 
             return null;
         }
