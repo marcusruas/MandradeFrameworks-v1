@@ -1,8 +1,10 @@
 ﻿using Dapper;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Linq;
 using System.Reflection;
 
 namespace MandradePkgs.Conexoes.Mapeamentos
@@ -10,19 +12,23 @@ namespace MandradePkgs.Conexoes.Mapeamentos
     public static class DboSqlMapper
     {
 
-        public static DynamicParameters MapearParaDbo<T>(T dados) {
+        public static DynamicParameters MapearParaDbo<T>(T dados, object ignorarParametros = null) {
             DynamicParameters parametros = new DynamicParameters();
             var parametrosClasse = typeof(T).GetProperties();
+            List<string> listIgnore = new List<string>();
+
+            if (ignorarParametros != null)
+                listIgnore = ignorarParametros.GetType().GetProperties().Select(x => x.Name).ToList();
 
             foreach (var prop in parametrosClasse) {
-                var dadosProp = dados.GetType().GetProperty(prop.Name).GetValue(dados);
+                if (listIgnore.Any(x => x == prop.Name))
+                    continue;
 
+                var dadosProp = dados.GetType().GetProperty(prop.Name).GetValue(dados);
                 var descricao = ObterDescription(prop);
                 var tipo = ObterTipo(prop.PropertyType);
                 var tamanho = ObterTamanho(prop);
 
-                if (!(tipo is DbType.Int16 || tipo is DbType.Int32 || tipo is DbType.Int64))
-                    if (dadosProp == null) continue;
                 parametros.Add(descricao, dadosProp, tipo, size: tamanho);
             }
 
