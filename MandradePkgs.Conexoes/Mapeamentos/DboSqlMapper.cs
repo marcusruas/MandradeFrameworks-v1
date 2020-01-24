@@ -12,7 +12,7 @@ namespace MandradePkgs.Conexoes.Mapeamentos
     public static class DboSqlMapper
     {
 
-        public static DynamicParameters MapearParaDbo<T>(T dados, object ignorarParametros = null) {
+        public static DynamicParameters DboParaParametros<T>(T dados, object ignorarParametros = null) {
             DynamicParameters parametros = new DynamicParameters();
             var parametrosClasse = typeof(T).GetProperties();
             List<string> listIgnore = new List<string>();
@@ -33,6 +33,12 @@ namespace MandradePkgs.Conexoes.Mapeamentos
             }
 
             return parametros;
+        }
+
+        public static void MapearRetornoObjeto<T>() {
+            var map = new CustomPropertyTypeMap(typeof(T),
+                        (type, columnName) => type.GetProperties().FirstOrDefault(prop => ObterDescription(prop) == columnName));
+            SqlMapper.SetTypeMap(typeof(T), map);
         }
 
         private static string ObterDescription(PropertyInfo prop) {
