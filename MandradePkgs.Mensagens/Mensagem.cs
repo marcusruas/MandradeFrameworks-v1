@@ -3,16 +3,16 @@
     public class Mensagem
     {
         public Mensagem(TipoMensagem tipo, string texto) {
-            Tipo = tipo.ToString();
+            Tipo = (int)tipo;
             Texto = texto;
         }
 
         public Mensagem(string texto) {
-            Tipo = TipoMensagem.Informativo.ToString();
+            Tipo = (int)TipoMensagem.Informativo;
             Texto = texto;
         }
 
-        public string Tipo { get; set; }
+        public int Tipo { get; set; }
         public string Texto { get; set; }
     }
 }

@@ -8,5 +8,6 @@ namespace MandradePkgs.Mensagens
         void AdicionarMensagem(string mensagem);
         void AdicionarMensagem(TipoMensagem tipoMensagem, string mensagem);
         bool PossuiMensagensErro();
+        bool PossuiFalhasValidacao();
     }
 }
