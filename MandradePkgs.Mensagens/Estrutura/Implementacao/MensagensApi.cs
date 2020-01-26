@@ -3,11 +3,15 @@ using System.Linq;
 
 namespace MandradePkgs.Mensagens.Estrutura.Implementacao
 {
-    internal class MensagensApi : IMensagensApi {
+    public class MensagensApi : IMensagensApi {
         public List<Mensagem> Mensagens { get; }
 
         public MensagensApi() {
             Mensagens = new List<Mensagem>();
+        }
+
+        public MensagensApi(List<Mensagem> lista) {
+            Mensagens = lista;
         }
 
         public void AdicionarMensagem(string mensagem) => Mensagens.Add(new Mensagem(mensagem));
