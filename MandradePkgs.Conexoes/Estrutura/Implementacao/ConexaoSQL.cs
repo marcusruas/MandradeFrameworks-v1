@@ -7,7 +7,7 @@ using static MandradePkgs.Conexoes.Estrutura.Helpers.LeitorArquivos;
 
 namespace MandradePkgs.Conexoes.Estrutura.Implementacao
 {
-    internal class ConexaoSQL : IConexaoSQL
+    public class ConexaoSQL : IConexaoSQL
     {
         private Type _localConexoes;
         public ConexaoSQL(Type localConexoes) {
