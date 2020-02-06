@@ -9,10 +9,10 @@ using System.Reflection;
 
 namespace MandradePkgs.Conexoes.Mapeamentos
 {
-    public static class DboSqlMapper
+    public static class DpoSqlMapper
     {
 
-        public static DynamicParameters DboParaParametros<T>(T dados, object ignorarParametros = null) {
+        public static DynamicParameters DpoParaParametros<T>(T dados, object ignorarParametros = null) {
             DynamicParameters parametros = new DynamicParameters();
             var parametrosClasse = typeof(T).GetProperties();
             List<string> listIgnore = new List<string>();
