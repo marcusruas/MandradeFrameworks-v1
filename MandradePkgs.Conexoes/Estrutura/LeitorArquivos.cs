@@ -15,8 +15,7 @@ namespace MandradePkgs.Conexoes.Estrutura
             string conteudoArquivo = string.Empty;
 
             try {
-                string namespaceOriginal = tipoClasse.Namespace;
-                string pathArquivo = Path.Combine(pathProjeto, namespaceOriginal, classeExecutora.PastaPadraoArquivos, $"{nomeArquivo}.sql");
+                string pathArquivo = Path.Combine(pathProjeto, classeExecutora.Namespace, classeExecutora.PastaPadraoArquivos, $"{nomeArquivo}.sql");
                 pathArquivo = pathArquivo.Replace("file:\\", "");
 
                 string[] linhas;
