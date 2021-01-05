@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MandradePkgs.Conexoes.Estrutura.Models;
+using MandradePkgs.Conexoes.Estrutura.Model;
 using Newtonsoft.Json;
 
-namespace MandradePkgs.Conexoes.Estrutura.Helpers
+namespace MandradePkgs.Conexoes.Estrutura
 {
     internal static class LeitorArquivos
     {   
-        public static string LerArquivoSQL(Type classe, string nomeArquivo) {
-            string pathApi = Path.GetDirectoryName(classe.Assembly.CodeBase);
+        public static string LerArquivoSQL(ClasseRepositorio classeExecutora, string nomeArquivo) {
+            Type tipoClasse = classeExecutora.GetType();
+            string pathProjeto = Path.GetDirectoryName(tipoClasse.Assembly.CodeBase);
             string conteudoArquivo = string.Empty;
 
             try {
-                string namespaceOriginal = classe.Namespace.Split('.')[1]; //Repositorio.NameSpace
-                string pathArquivo = Path.Combine(pathApi, namespaceOriginal, "SQL", $"{nomeArquivo}.sql");
+                string namespaceOriginal = tipoClasse.Namespace;
+                string pathArquivo = Path.Combine(pathProjeto, namespaceOriginal, classeExecutora.PastaPadraoArquivos, $"{nomeArquivo}.sql");
                 pathArquivo = pathArquivo.Replace("file:\\", "");
 
                 string[] linhas;
@@ -34,8 +35,8 @@ namespace MandradePkgs.Conexoes.Estrutura.Helpers
             return conteudoArquivo;
         }
 
-        public static string BuscarConnectionString(Type classe, string nomeBanco) {
-            string pathApi = Path.GetDirectoryName(classe.Assembly.CodeBase);
+        public static string BuscarConnectionString(Type classeExecutora, string nomeBanco) {
+            string pathApi = Path.GetDirectoryName(classeExecutora.Assembly.CodeBase);
             string arquivoConexao = Path.Combine(pathApi, "conexoes.json").Replace("file:\\", "");
 
             if(!File.Exists(arquivoConexao))

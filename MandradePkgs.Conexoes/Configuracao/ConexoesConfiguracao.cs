@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MandradePkgs.Conexoes.Configuracao
 {
-    public static class PersistenciaConfiguracao
+    public static class ConfiguracaoConexoes
     {
         public static void ImplementarConexaoSQL(this IServiceCollection servicos, Type classe) {
             servicos.AddSingleton<IConexaoSQL, ConexaoSQL>(imp => new ConexaoSQL(classe));

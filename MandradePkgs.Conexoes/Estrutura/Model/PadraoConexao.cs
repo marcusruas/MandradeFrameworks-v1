@@ -1,4 +1,4 @@
-﻿namespace MandradePkgs.Conexoes.Estrutura.Models
+﻿namespace MandradePkgs.Conexoes.Estrutura.Model
 {
     internal class PadraoConexao
     {

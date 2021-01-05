@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
-using static MandradePkgs.Conexoes.Estrutura.Helpers.LeitorArquivos;
+using MandradePkgs.Conexoes.Estrutura.Model;
+using static MandradePkgs.Conexoes.Estrutura.LeitorArquivos;
 
 namespace MandradePkgs.Conexoes.Estrutura.Implementacao
 {
@@ -14,22 +13,19 @@ namespace MandradePkgs.Conexoes.Estrutura.Implementacao
             _localConexoes = localConexoes;
         }
 
-        public string ObterConsultaArquivoSQL(Type classeExecutora, string nomeArquivo) {
-            return LerArquivoSQL(classeExecutora, nomeArquivo);
-        }
+        public IDbConnection CriarNovaConexao(string nomeBanco) =>
+            new SqlConnection(BuscarConnectionString(_localConexoes, nomeBanco));
 
-        public (string, IDbConnection) ObterComandoSQLParaBanco(Type classeExecutora, string nomeArquivo, string nomeBanco) {
-            return (
-                ObterConsultaArquivoSQL(classeExecutora, nomeArquivo),
-                CriarNovaConexao(nomeBanco)
-            );
-        }
-        public IDbConnection CriarNovaConexao(string nomeBanco) {
-            return new SqlConnection(BuscarConnectionString(_localConexoes, nomeBanco));
-        }
+        public (string, IDbConnection) ObterComandoSQLParaBanco(ClasseRepositorio classeExecutora, string nomeArquivo, string nomeBanco) =>
+        (
+            ObterConteudoArquivoSQL(classeExecutora, nomeArquivo),
+            CriarNovaConexao(nomeBanco)
+        );
 
-        public string ObterConnectionString(string nomeBanco) {
-            return BuscarConnectionString(_localConexoes, nomeBanco);
-        }
+        public string ObterConnectionString(string nomeBanco) =>
+            BuscarConnectionString(_localConexoes, nomeBanco);
+
+        public string ObterConteudoArquivoSQL(ClasseRepositorio classeExecutora, string nomeArquivo) =>
+            LerArquivoSQL(classeExecutora, nomeArquivo);
     }
 }

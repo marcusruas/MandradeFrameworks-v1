@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>Conexoes</PackageId>
-    <Version>0.2.9</Version>
+    <Version>0.3.9</Version>
     <Authors>Marcus Ruas</Authors>
     <description>Pacote de persistência em banco de dados relacionais e não relacionais.</description>
-    <copyright>Copyright ©2019 Marcus Ruas</copyright>
+    <copyright>Copyright ©2021 Marcus Ruas</copyright>
   </PropertyGroup>
 
   <ItemGroup>

@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Reflection;
 
-namespace MandradePkgs.Conexoes.Mapeamentos
+namespace MandradePkgs.Conexoes.Estrutura.Mapeamento
 {
     public static class DpoSqlMapper
     {
