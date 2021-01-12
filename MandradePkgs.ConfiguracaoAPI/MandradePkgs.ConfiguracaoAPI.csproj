@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>ConfiguracoesAPI</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Marcus Ruas</Authors>
+    <description>Pacote de configurações para minhas APIS.</description>
+    <copyright>Copyright ©2021 Marcus Ruas</copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autenticacao" Version="0.0.1" />
+    <PackageReference Include="Conexoes" Version="0.3.10" />
+    <PackageReference Include="Mensagens" Version="0.1.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Retornos" Version="0.4.15" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

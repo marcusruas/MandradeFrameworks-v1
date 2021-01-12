@@ -12,9 +12,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.Retornos", "Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.Autenticacao", "MandradePkgs.Autenticacao\MandradePkgs.Autenticacao.csproj", "{316B99D1-B4D5-4305-BB56-1FD96370DC1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandradePkgs.Mensagens", "MandradePkgs.Mensagens\MandradePkgs.Mensagens.csproj", "{CEA63319-9151-43BD-BC09-734B5C25C8D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.Mensagens", "MandradePkgs.Mensagens\MandradePkgs.Mensagens.csproj", "{CEA63319-9151-43BD-BC09-734B5C25C8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandradePkgs.Testes", "MandradePkgs.Testes\MandradePkgs.Testes.csproj", "{604D4C4E-A66C-4259-AA2C-590BCF39C8E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.Testes", "MandradePkgs.Testes\MandradePkgs.Testes.csproj", "{604D4C4E-A66C-4259-AA2C-590BCF39C8E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandradePkgs.ConfiguracaoAPI", "MandradePkgs.ConfiguracaoAPI\MandradePkgs.ConfiguracaoAPI.csproj", "{EE61244E-4875-44EB-9CA4-72C5F1625546}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,10 @@ Global
 		{604D4C4E-A66C-4259-AA2C-590BCF39C8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{604D4C4E-A66C-4259-AA2C-590BCF39C8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{604D4C4E-A66C-4259-AA2C-590BCF39C8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE61244E-4875-44EB-9CA4-72C5F1625546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE61244E-4875-44EB-9CA4-72C5F1625546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE61244E-4875-44EB-9CA4-72C5F1625546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE61244E-4875-44EB-9CA4-72C5F1625546}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
