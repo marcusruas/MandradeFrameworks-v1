@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Models;
 
 namespace MandradePkgs.Autenticacao.Configuracao
 {
@@ -20,6 +22,7 @@ namespace MandradePkgs.Autenticacao.Configuracao
 
             servicos.AddSingleton(assinatura);
             servicos.AddSingleton(configuracoes);
+
             servicos.AddAuthentication(authOptions =>
             {
                 authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -35,13 +38,33 @@ namespace MandradePkgs.Autenticacao.Configuracao
                 parametrosValidacao.ValidateLifetime = true;
             });
 
-            // Ativa o uso do token como forma de autorizar o acesso
-            // a recursos deste projeto
             servicos.AddAuthorization(auth =>
             {
                 auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser().Build());
+            });
+        }
+
+        public static void ImplementarAutenticacaoJWTSwagger(this SwaggerGenOptions swaggerCnf) {
+            swaggerCnf.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme {
+                In = ParameterLocation.Header, 
+                Description = "Por favor insira o token JWT no campo abaixo.",
+                Name = "Authorization",
+                Type = SecuritySchemeType.ApiKey 
+            });
+            swaggerCnf.AddSecurityRequirement(new OpenApiSecurityRequirement {
+            { 
+                new OpenApiSecurityScheme 
+                { 
+                Reference = new OpenApiReference 
+                { 
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer" 
+                } 
+                },
+                new string[] { } 
+                } 
             });
         }
     }

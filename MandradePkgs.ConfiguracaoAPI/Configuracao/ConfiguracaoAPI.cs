@@ -2,12 +2,12 @@ using MandradePkgs.ConfiguracaoAPI.Estrutura.Modelos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 using System;
 using static MandradePkgs.Conexoes.Configuracao.ConfiguracaoConexoes;
 using static MandradePkgs.Mensagens.Configuracao.MensagensConfiguracao;
 using static MandradePkgs.Retornos.Configuracao.RetornosConfiguracao;
 using static MandradePkgs.Autenticacao.Configuracao.AutenticacaoConfiguracao;
-using Microsoft.Extensions.Configuration;
 
 namespace MandradePkgs.ConfiguracaoAPI.Configuracao
 {
@@ -21,8 +21,7 @@ namespace MandradePkgs.ConfiguracaoAPI.Configuracao
         }
 
         public static void ImplementarConfiguracoesServicos(this IServiceCollection servicos) {
-            servicos.AddSwaggerGen();
-
+            servicos.AddSwaggerGen(cnf => cnf.ImplementarAutenticacaoJWTSwagger());
             servicos.AddCors(options =>
             {
                 options.AddPolicy("Permissionamentos",
