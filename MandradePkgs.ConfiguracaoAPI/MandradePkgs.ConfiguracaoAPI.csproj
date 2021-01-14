@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>ConfiguracoesAPI</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.4</Version>
     <Authors>Marcus Ruas</Authors>
     <description>Pacote de configurações para minhas APIS.</description>
     <copyright>Copyright ©2021 Marcus Ruas</copyright>

@@ -13,10 +13,13 @@ namespace MandradePkgs.ConfiguracaoAPI.Configuracao
 {
     public static class ConfiguracaoAPI
     {
-        public static void ImplementarMandradePKGS(this IServiceCollection servicos, IConfiguration configuracoes, MvcOptions mvcConfiguracoes, Type startup) {
+        public static void ImplementarMandradePKGS(this IServiceCollection servicos, IConfiguration configuracoes, Type startup) {
             servicos.ImplementarConexaoSQL(startup);
             servicos.ImplementarMensagensServico();
             servicos.ImplementarAutenticacaoJWT(configuracoes);
+        }
+
+        public static void ImplementarConfiguracoesMvc(MvcOptions mvcConfiguracoes) {
             mvcConfiguracoes.ImplementarFiltrosRetorno();
         }
 
@@ -41,8 +44,12 @@ namespace MandradePkgs.ConfiguracaoAPI.Configuracao
 
             aplicacao.UseCors("Permissionamentos");
             aplicacao.UseHttpsRedirection();
-
-            aplicacao.UseMvc();
+            aplicacao.UseRouting();
+            aplicacao.UseAuthorization();
+            aplicacao.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
         
     }
