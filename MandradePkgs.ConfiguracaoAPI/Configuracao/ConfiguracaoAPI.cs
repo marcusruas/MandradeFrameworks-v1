@@ -51,6 +51,5 @@ namespace MandradePkgs.ConfiguracaoAPI.Configuracao
                 endpoints.MapControllers();
             });
         }
-        
     }
 }
