@@ -3,14 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>ConfiguracoesAPI</PackageId>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <Authors>Marcus Ruas</Authors>
     <description>Pacote de configurações para minhas APIS.</description>
     <copyright>Copyright ©2021 Marcus Ruas</copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autenticacao" Version="0.0.3" />
+    <PackageReference Include="Autenticacao" Version="0.0.4" />
     <PackageReference Include="Conexoes" Version="0.3.10" />
     <PackageReference Include="Mensagens" Version="0.1.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
